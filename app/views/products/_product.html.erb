@@ -16,7 +16,12 @@
       Details &raquo;
     <% end %>
   </footer>
-
+  
+  <% if product.quantity == 0 %>
+    <aside class="sold_out">
+      SOLD OUT!
+    </aside>
+  <% end %>
   <aside class="price">
     $<%= number_with_precision(product.price, precision: 2) %>
   </aside>
