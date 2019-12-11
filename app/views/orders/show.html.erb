@@ -5,6 +5,37 @@
   </header>
 
   <div class="order-summary jumbotron">
+    <% order_items = LineItem.where(order_id: @order.id) %>
+    <div class="panel panel-default items">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% order_total = 0 %>
+        <% order_items.each do |item| %>
+          <% product = Product.where(id: item.product_id) %>
+          <%= render 'order_item', product: product[0], quantity: item.quantity %>
+          <% order_total += item.total_price_cents %>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="4">
+            TOTAL:
+          </th>
+          <th>
+            $<%= number_with_precision(order_total / 100.00, precision: 2) %>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
     <h4>Thank you for your order!</h4>
   </div>
 
