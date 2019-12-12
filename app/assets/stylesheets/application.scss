@@ -15,3 +15,28 @@ body {
 form.button_to {
   display: inline;
 }
+
+form.signup_form {
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+}
+
+form.login_form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.form_field  {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.current_user {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
