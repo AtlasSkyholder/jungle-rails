@@ -17,6 +17,21 @@
         <li>
           <%= link_to 'About', :about %>
         </li>
+        <% if current_user %>
+        <li class="current_user" style="display: flex;">
+          Signed in as <%= current_user.email %>
+        </li>
+        <li>
+          <%= link_to 'Logout', :logout %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to 'Register', :signup %>
+        </li>
+        <li>
+          <%= link_to 'Login', :login %>
+        </li>
+      <% end %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             Categories
